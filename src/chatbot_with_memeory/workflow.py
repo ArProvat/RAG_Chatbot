@@ -19,7 +19,16 @@ def build_workflow(retrieval_func, generation_func):
     graph.add_edge("retriever", "generator")
     graph.add_edge("generator", END)
 
+    #conn = sqlite3.connect("checkpoints.db", check_same_thread=False)
+    #checkpointer = SqliteSaver(conn)
+    #return graph.compile(checkpointer=checkpointer)
+    return graph.compile()
+
+'''def retrieval_all_thread():
     conn = sqlite3.connect("checkpoints.db", check_same_thread=False)
     checkpointer = SqliteSaver(conn)
-
-    return graph.compile(checkpointer=checkpointer)
+    
+    all_thread =set()
+    for checkpoint in checkpointer.list(None):
+        all_thread.add(checkpoint.config["configurable"]["thread_id"])
+    return list(all_thread)'''
