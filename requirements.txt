@@ -1,0 +1,15 @@
+langchain 
+langchain-ollama
+langchain-community
+langchain_huggingface
+langgraph
+jq
+json5
+google-genai
+faiss-cpu
+typing_extensions
+typing
+langgraph-checkpoint-sqlite
+streamlit
+numpy
+pandas
