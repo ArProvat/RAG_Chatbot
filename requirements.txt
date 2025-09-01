@@ -8,11 +8,13 @@ google-genai
 sentence-transformers
 faiss-cpu
 json5
+python-dotenv
+dotenv
 numpy
 pandas
 streamlit
-
-
+huggingface_hub
+rank_bm25
 
 
 

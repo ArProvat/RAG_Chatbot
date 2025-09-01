@@ -9,7 +9,10 @@ def build_retriever(vectorstore, chunks):
 
     ensemble = EnsembleRetriever(retrievers=[semantic, lexical], weights=[0.7, 0.3])
 
-    model = HuggingFaceCrossEncoder(model_name="BAAI/bge-reranker-base")
+    model = HuggingFaceCrossEncoder(
+    model_name="BAAI/bge-reranker-base",
+    model_kwargs={"device": "cpu"}
+)
     compressor = CrossEncoderReranker(model=model, top_n=3)
 
     return ContextualCompressionRetriever(base_compressor=compressor, base_retriever=ensemble)

@@ -1,5 +1,5 @@
 from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.memory import SqliteSaver
+from langgraph.checkpoint.sqlite import SqliteSaver
 import sqlite3
 from typing_extensions import TypedDict
 from typing import List, Annotated
@@ -21,6 +21,5 @@ def build_workflow(retrieval_func, generation_func):
 
     conn = sqlite3.connect("checkpoints.db", check_same_thread=False)
     checkpointer = SqliteSaver(conn)
-    workflow=graph.compile(checkpointer=checkpointer)
 
-    return workflow
+    return graph.compile(checkpointer=checkpointer)
