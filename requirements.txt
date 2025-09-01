@@ -7,6 +7,7 @@ langgraph-checkpoint-sqlite
 google-genai
 sentence-transformers
 faiss-cpu
+json5
 numpy
 pandas
 streamlit
